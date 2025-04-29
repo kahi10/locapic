@@ -31,7 +31,7 @@ export default function PlacesScreen() {
             longitude: cityToAdd.geometry.coordinates[0],
           }
           
-          fetch('https://locapic-ten.vercel.app/places', {
+          fetch('https://locapic-backend-blue.vercel.app/places', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newPlace)
