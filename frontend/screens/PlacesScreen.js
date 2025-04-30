@@ -12,6 +12,8 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useDispatch, useSelector } from 'react-redux';
 import { addPlace, removePlace } from '../reducers/user';
 
+const BACKEND_URL = 'https://locapic-backend-blue.vercel.app';
+
 export default function PlacesScreen() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
@@ -31,7 +33,7 @@ export default function PlacesScreen() {
             longitude: cityToAdd.geometry.coordinates[0],
           }
           
-          fetch('https://locapic-backend-blue.vercel.app/places', {
+          fetch(`${BACKEND_URL}/places`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newPlace)
@@ -45,7 +47,7 @@ export default function PlacesScreen() {
   };
 
   const removeCity = (nickname, name) => {
-    fetch('https://locapic-backend-blue.vercel.app/places',
+    fetch(`${BACKEND_URL}/places`,
       {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },

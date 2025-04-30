@@ -13,6 +13,8 @@ export default function MapScreen() {
   const [modalVisible, setModalVisible] = useState(false);
   const [placeName, setPlaceName] = useState('');
 
+  const BACKEND_URL = 'https://locapic-backend-blue.vercel.app';
+
   useEffect(() => {
     (async () => {
       const result = await Location.requestForegroundPermissionsAsync();
@@ -41,7 +43,7 @@ export default function MapScreen() {
         longitude: tempCoordinates.longitude,
 		  };
       
-      fetch('https://locapic-backend-blue.vercel.app/places', {
+      fetch(`${BACKEND_URL}/places`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newPlace)
@@ -62,7 +64,7 @@ export default function MapScreen() {
     setTempCoordinates(null);
   };
   useEffect(() => {
-    fetch(`https://locapic-backend-blue.vercel.app/places/${user.nickname}`)
+    fetch(`${BACKEND_URL}/places/${user.nickname}`)
     .then((response) => response.json())
     .then((data) => {
       data.result && dispatch(addPlaces(data.places));
