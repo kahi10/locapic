@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "locapic-part4",
-    "slug": "locapic-part4",
+    "name": "locapic",
+    "slug": "locapic",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
