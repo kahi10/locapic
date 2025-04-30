@@ -41,7 +41,7 @@ export default function MapScreen() {
         longitude: tempCoordinates.longitude,
 		  };
       
-      fetch('http://192.168.0.11:3000/places', {
+      fetch('https://locapic-backend-blue.vercel.app/places', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newPlace)
@@ -62,7 +62,7 @@ export default function MapScreen() {
     setTempCoordinates(null);
   };
   useEffect(() => {
-    fetch(`http://192.168.0.11:3000/places/${user.nickname}`)
+    fetch(`https://locapic-backend-blue.vercel.app/places/${user.nickname}`)
     .then((response) => response.json())
     .then((data) => {
       data.result && dispatch(addPlaces(data.places));
