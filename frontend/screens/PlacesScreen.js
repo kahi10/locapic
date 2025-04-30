@@ -45,7 +45,7 @@ export default function PlacesScreen() {
   };
 
   const removeCity = (nickname, name) => {
-    fetch('http://192.168.0.11:3000/places',
+    fetch('https://locapic-backend-blue.vercel.app/places',
       {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
